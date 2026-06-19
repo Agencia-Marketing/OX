@@ -39,3 +39,19 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+.vercel
+
+# working source assets (not part of the app)
+/.claude
+/RENDERS OX
+/tmp-pdf
+/Video Ox.mp4
+/PLANTA GRIS*.jpg
+/PLANTA GRIS*.pdf
+/Textos Landing Page OX.docx
+/Inmobilia.png
+/Kora Living.png
+/Concoord.png
+/modelo.png
+/OX_logo_editable*.svg

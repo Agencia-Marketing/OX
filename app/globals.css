@@ -1,26 +1,96 @@
 @import "tailwindcss";
 
+/* ============ OX Residencial — Design Tokens ============ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Paleta neutra (brief) */
+  --marfil: #f6f3ee;
+  --greige: #b7b1a5;
+  --chukum: #c7b299;
+  --carbon: #2e2e2e;
+  --grafito: #1c1c1c;
+  /* Acentos de marca (logo): verde profundo + oro */
+  --verde: #1e3a34;
+  --verde-700: #16302b;
+  --oro: #b8915a;
+  --oro-300: #d6b483;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-marfil: var(--marfil);
+  --color-greige: var(--greige);
+  --color-chukum: var(--chukum);
+  --color-carbon: var(--carbon);
+  --color-grafito: var(--grafito);
+  --color-verde: var(--verde);
+  --color-verde-700: var(--verde-700);
+  --color-oro: var(--oro);
+  --color-oro-300: var(--oro-300);
+
+  --color-background: var(--marfil);
+  --color-foreground: var(--grafito);
+
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-outfit);
+
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  border-color: color-mix(in srgb, var(--greige) 45%, transparent);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 8rem; /* compensa el header sticky (logo grande) en anclas */
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--marfil);
+  color: var(--grafito);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Tipografía display */
+.font-display {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Línea-acento dorada reutilizable */
+.rule-oro {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--oro) 20%,
+    var(--oro) 80%,
+    transparent
+  );
+}
+
+/* Texto con kerning fino para titulares grandes */
+.tracking-display {
+  letter-spacing: -0.02em;
+}
+
+/* Reduce el movimiento si el usuario lo pide */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Focus visible accesible */
+:focus-visible {
+  outline: 2px solid var(--oro);
+  outline-offset: 2px;
+  border-radius: 2px;
 }
