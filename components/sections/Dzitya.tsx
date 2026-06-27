@@ -52,10 +52,9 @@ export default function Dzitya() {
           {/* Mapa interactivo */}
           <Reveal delay={0.1}>
             <div className="overflow-hidden rounded-2xl border border-greige/40 shadow-sm">
-              {/* TODO: reemplazar `src` con el enlace EXACTO de ubicación que enviará el cliente. */}
               <iframe
-                title="Mapa de la Zona Norte de Mérida, Yucatán"
-                src="https://www.google.com/maps?q=Zona%20Norte,%20M%C3%A9rida,%20Yucat%C3%A1n&z=13&output=embed"
+                title="Ubicación de OX Tres Residencias Privadas, Dzityá, Mérida"
+                src="https://www.google.com/maps?q=OX+Tres+Residencias+Privadas,+C.+63B,+Bellavista,+97302+Dzity%C3%A1,+Yuc.&z=16&output=embed"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 className="h-[420px] w-full lg:h-[520px]"
