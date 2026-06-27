@@ -6,13 +6,12 @@ import Logo from "./Logo";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 
 const NAV = [
-  { href: "#por-que-ox", label: "¿Por qué OX?" },
   { href: "#smart-living", label: "Smart Living" },
-  { href: "#hogar", label: "El hogar" },
-  { href: "#dzitya", label: "Ubicación" },
+  { href: "#hogar", label: "Tu Nuevo Hogar" },
+  { href: "#ubicacion", label: "Ubicación" },
   { href: "#galeria", label: "Galería" },
-  { href: "#video", label: "Video" },
-  { href: "#ostech", label: "OSTECH" },
+  { href: "#por-que-elegir", label: "¿Por qué elegir OX?" },
+  { href: "#ostech", label: "Ostech" },
 ];
 
 export default function Header() {
@@ -68,7 +67,7 @@ export default function Header() {
             rel="noopener noreferrer"
             className="hidden min-h-[44px] items-center rounded-full bg-verde px-5 text-sm font-medium text-marfil transition-colors hover:bg-verde-700 sm:inline-flex"
           >
-            Agenda una visita
+            Conoce OX
           </a>
           <button
             type="button"

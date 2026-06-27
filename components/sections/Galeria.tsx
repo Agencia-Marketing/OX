@@ -5,19 +5,24 @@ import Image from "next/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import SectionHeading from "../SectionHeading";
 import CTAButton from "../CTAButton";
+import Carousel from "../Carousel";
 
-type Shot = { src: string; alt: string; span?: boolean };
+type Shot = { src: string; alt: string };
 
 const SHOTS: Shot[] = [
-  { src: "/renders/fachada-principal.webp", alt: "Fachada principal del conjunto residencial OX", span: true },
+  { src: "/renders/fachada-principal.webp", alt: "Fachada principal del conjunto residencial OX" },
   { src: "/renders/cocina.webp", alt: "Cocina con isla y comedor integrados" },
   { src: "/renders/recamara-principal.webp", alt: "Recámara principal con acceso a terraza" },
   { src: "/renders/bano-principal.webp", alt: "Baño principal con vestidor" },
   { src: "/renders/lateral-1.webp", alt: "Vista lateral de la residencia OX" },
-  { src: "/renders/fachada-posterior.webp", alt: "Fachada posterior con área de alberca", span: true },
+  { src: "/renders/fachada-posterior.webp", alt: "Fachada posterior con área de alberca" },
   { src: "/renders/recamara-pb.webp", alt: "Recámara en planta baja" },
   { src: "/renders/bano-pb.webp", alt: "Baño en planta baja" },
   { src: "/renders/lateral-2.webp", alt: "Vista lateral alterna de la residencia OX" },
+  // TODO: agregar 1–2 fotos de stock de pareja joven (con llaves / firmando — no IA dentro de casa).
+  // Soltar archivos en /public/stock/ y descomentar:
+  // { src: "/stock/pareja-1.jpg", alt: "Pareja joven recibiendo las llaves de su nuevo hogar" },
+  // { src: "/stock/pareja-2.jpg", alt: "Pareja joven firmando la compra de su residencia" },
 ];
 
 export default function Galeria() {
@@ -54,36 +59,28 @@ export default function Galeria() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
           eyebrow="Galería"
-          title="Imagina tu vida en OX."
-          intro="Recorre cada espacio y descubre una nueva manera de habitar tu hogar. Diseño, tecnología y bienestar integrados en un proyecto pensado para quienes buscan algo diferente."
+          title="Imagina tu nueva vida en OX"
+          intro="Espacios donde la tecnología, el diseño y el bienestar conviven de forma natural."
         />
 
-        <div className="mt-12 grid auto-rows-[200px] grid-cols-2 gap-3 sm:auto-rows-[240px] lg:grid-cols-4">
-          {SHOTS.map((shot, i) => (
-            <button
-              key={shot.src}
-              type="button"
-              onClick={() => setIndex(i)}
-              aria-label={`Ampliar imagen: ${shot.alt}`}
-              className={`group relative overflow-hidden rounded-xl focus-visible:outline-2 ${
-                shot.span ? "col-span-2 row-span-1" : ""
-              }`}
-            >
-              <Image
-                src={shot.src}
-                alt={shot.alt}
-                fill
-                sizes="(max-width: 1024px) 50vw, 25vw"
-                loading="lazy"
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <span className="absolute inset-0 bg-grafito/0 transition-colors duration-300 group-hover:bg-grafito/15" />
-            </button>
-          ))}
+        {/* Carrusel 1×1 con auto-slide; click abre el lightbox, hover muestra "Ver" */}
+        <div className="mt-12">
+          <Carousel
+            slides={SHOTS}
+            aspect="16/9"
+            interval={4000}
+            hoverCue
+            onSlideClick={(i) => setIndex(i)}
+            sizes="(max-width: 1280px) 100vw, 1200px"
+          />
         </div>
 
-        <div className="mt-12 text-center">
-          <CTAButton>Agenda una visita y visualiza tu vida en OX</CTAButton>
+        <p className="mx-auto mt-10 max-w-2xl text-center font-display text-lg font-light leading-snug text-carbon/80">
+          Una residencia diseñada para disfrutar la vida de una manera más cómoda y moderna.
+        </p>
+
+        <div className="mt-8 text-center">
+          <CTAButton>Agenda una visita y conoce OX</CTAButton>
         </div>
       </div>
 

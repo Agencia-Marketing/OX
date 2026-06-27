@@ -1,45 +1,46 @@
-import {
-  Lightbulb,
-  Camera,
-  Workflow,
-  Sun,
-  Gauge,
-  Wifi,
-} from "lucide-react";
+import Image from "next/image";
 import SectionHeading from "../SectionHeading";
 import Reveal from "../Reveal";
 import CTAButton from "../CTAButton";
 
-const FEATURES = [
+// Cada tarjeta usa una imagen de apoyo. Los renders son INTERINOS;
+// reemplazar con imágenes de stock definitivas en /public/smart/ (ver `final`).
+const CARDS = [
   {
-    icon: Lightbulb,
-    title: "Control inteligente",
-    text: "Administra iluminación y funciones del hogar de forma simple y práctica.",
+    img: "/renders/cocina.webp",
+    final: "/smart/smart-home.jpg", // TODO: imagen stock Smart Home
+    title: "Smart Home",
+    text: "Integración y automatización para una experiencia de vida más práctica.",
   },
   {
-    icon: Camera,
-    title: "Seguridad inteligente",
-    text: "Sistema de vigilancia para mayor tranquilidad de toda tu familia.",
+    img: "/renders/fachada-principal.webp",
+    final: "/smart/seguridad.jpg", // TODO: imagen stock seguridad
+    title: "Seguridad Inteligente",
+    text: "Mayor tranquilidad para ti y tu familia.",
   },
   {
-    icon: Workflow,
-    title: "Automatización residencial",
-    text: "Tecnología diseñada para hacer tu vida más fácil y cómoda.",
+    img: "/renders/fachada-posterior.webp",
+    final: "/smart/paneles.jpg", // TODO: imagen stock paneles solares
+    title: "Paneles Solares",
+    text: "Mayor eficiencia y mejor aprovechamiento energético.",
   },
   {
-    icon: Sun,
-    title: "Paneles solares",
-    text: "Menor consumo energético y mayor eficiencia desde el primer día.",
-  },
-  {
-    icon: Gauge,
-    title: "Ahorro energético",
-    text: "Recursos optimizados para un estilo de vida más eficiente y sustentable.",
-  },
-  {
-    icon: Wifi,
+    img: "/renders/lateral-1.webp",
+    final: "/smart/conectividad.jpg", // TODO: imagen stock conectividad
     title: "Conectividad",
-    text: "Una vivienda preparada para las necesidades actuales y futuras.",
+    text: "Espacios preparados para las nuevas formas de vivir y trabajar.",
+  },
+  {
+    img: "/renders/recamara-principal.webp",
+    final: "/smart/iluminacion.jpg", // TODO: imagen stock iluminación
+    title: "Iluminación Inteligente",
+    text: "Mayor confort y funcionalidad en cada ambiente.",
+  },
+  {
+    img: "/renders/lateral-2.webp",
+    final: "/smart/diseno.jpg", // TODO: imagen stock diseño contemporáneo
+    title: "Diseño Contemporáneo",
+    text: "Arquitectura pensada para el estilo de vida actual.",
   },
 ];
 
@@ -60,40 +61,49 @@ export default function SmartLiving() {
       />
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
-          eyebrow="Smart Living by OSTECH"
-          title="La tecnología al servicio de tu tranquilidad."
-          intro="En OX, la innovación no es un lujo; es parte de tu vida diaria. Cada residencia integra soluciones inteligentes que mejoran tu experiencia, optimizan recursos y te permiten disfrutar un hogar más cómodo, seguro y eficiente."
+          eyebrow="Smart Living"
+          title="Mucho más que una casa. Una forma más inteligente de vivir."
+          intro="Una residencia diseñada para ofrecer mayor comodidad, seguridad y eficiencia todos los días."
           tone="light"
         />
 
-        <div className="mt-14 grid grid-cols-1 gap-x-10 gap-y-9 sm:grid-cols-2 lg:grid-cols-3">
-          {FEATURES.map((f, i) => (
-            <Reveal key={f.title} delay={(i % 3) * 0.06}>
-              <div className="flex gap-4">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-oro/30 bg-oro/10 text-oro-300">
-                  <f.icon size={22} strokeWidth={1.6} aria-hidden="true" />
-                </span>
-                <div>
-                  <h3 className="font-display text-lg font-medium text-marfil">
-                    {f.title}
+        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {CARDS.map((c, i) => (
+            <Reveal key={c.title} delay={(i % 3) * 0.08}>
+              {/* Tarjeta NO interactiva: sin cursor pointer ni estilo de botón */}
+              <article className="group overflow-hidden rounded-2xl border border-marfil/10 bg-grafito/40">
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={c.img}
+                    alt={c.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    loading="lazy"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="font-display text-xl font-medium text-marfil">
+                    {c.title}
                   </h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-marfil/65">
-                    {f.text}
+                  <p className="mt-2 text-sm leading-relaxed text-marfil/70">
+                    {c.text}
                   </p>
                 </div>
-              </div>
+              </article>
             </Reveal>
           ))}
         </div>
 
         <Reveal delay={0.15}>
-          <div className="mt-16 flex flex-col items-start gap-6 border-t border-marfil/15 pt-10 lg:flex-row lg:items-center lg:justify-between">
-            <p className="max-w-2xl font-display text-xl font-light leading-snug text-marfil/90">
-              Porque el verdadero lujo hoy es disfrutar un hogar que combina
-              tecnología, bienestar y una mejor forma de vivir.
+          <div className="mt-16 flex flex-col items-start gap-6 border-t border-marfil/15 pt-10 lg:flex-row lg:items-end lg:justify-between">
+            <p className="max-w-xl font-display text-2xl font-light leading-snug text-marfil/95">
+              El verdadero lujo hoy no es tener más espacio.
+              <br />
+              <span className="text-marfil">Es vivir mejor.</span>
             </p>
             <CTAButton variant="light" className="shrink-0">
-              Agenda una visita
+              Conoce OX
             </CTAButton>
           </div>
         </Reveal>

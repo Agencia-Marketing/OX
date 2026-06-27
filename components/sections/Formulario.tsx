@@ -11,6 +11,8 @@ export default function Formulario() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+  const [city, setCity] = useState("");
+  const [intent, setIntent] = useState("");
   const [errors, setErrors] = useState<Errors>({});
 
   function validate(): Errors {
@@ -33,7 +35,7 @@ export default function Formulario() {
     const context = email.trim()
       ? `Hola, me gustaría agendar una visita a OX Residencial. Mi correo es ${email.trim()}.`
       : undefined;
-    const link = buildWhatsAppLink({ name, phone, context });
+    const link = buildWhatsAppLink({ name, phone, city, intent, context });
     window.open(link, "_blank", "noopener,noreferrer");
   }
 
@@ -44,21 +46,17 @@ export default function Formulario() {
     <section id="contacto" className="bg-white/30 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="overflow-hidden rounded-3xl border border-greige/40 bg-marfil shadow-sm lg:grid lg:grid-cols-2">
-          {/* Imagen */}
+          {/* Imagen: persona dando la bienvenida. Sin overlay oscuro — la foto debe lucir. */}
+          {/* TODO: reemplazar por /stock/bienvenida.jpg (persona recibiendo/invitando). Interino: fachada. */}
           <div className="relative hidden min-h-[440px] lg:block">
             <Image
-              src="/renders/bano-principal.webp"
-              alt="Interior de una residencia OX"
+              src="/renders/fachada-principal.webp"
+              alt="Te damos la bienvenida a OX Residencial"
               fill
               sizes="50vw"
               loading="lazy"
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-grafito/50 to-transparent" />
-            <p className="absolute bottom-8 left-8 right-8 font-display text-2xl font-light leading-snug text-marfil">
-              Descubre por qué OX es mucho más que una casa: es una inversión en tu
-              calidad de vida.
-            </p>
           </div>
 
           {/* Formulario */}
@@ -68,11 +66,11 @@ export default function Formulario() {
               Agenda tu visita
             </p>
             <h2 className="mt-4 font-display text-3xl font-semibold leading-tight tracking-display text-grafito">
-              Conoce OX en persona.
+              Agenda una visita y conoce OX en persona.
             </h2>
             <p className="mt-3 text-base leading-relaxed text-carbon/75">
               Déjanos tus datos y te contactaremos por WhatsApp para coordinar tu
-              visita a las residencias y la ubicación.
+              visita a OX.
             </p>
 
             <form onSubmit={onSubmit} noValidate className="mt-8 space-y-5">
@@ -156,12 +154,56 @@ export default function Formulario() {
                 )}
               </div>
 
+              <div>
+                <label htmlFor="city" className="text-sm font-medium text-carbon">
+                  Ciudad de origen
+                </label>
+                <input
+                  id="city"
+                  name="city"
+                  type="text"
+                  autoComplete="address-level2"
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                  placeholder="Tu ciudad"
+                  className={`${fieldClass} border-greige/60`}
+                />
+              </div>
+
+              <fieldset>
+                <legend className="text-sm font-medium text-carbon">
+                  ¿Buscas para?
+                </legend>
+                <div className="mt-2 flex gap-3">
+                  {["Vivir", "Invertir"].map((opt) => (
+                    <label
+                      key={opt}
+                      className={`flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-xl border px-4 py-3 text-sm font-medium transition-colors ${
+                        intent === opt
+                          ? "border-verde bg-verde/10 text-verde"
+                          : "border-greige/60 text-carbon/75 hover:border-verde/50"
+                      }`}
+                    >
+                      <input
+                        type="radio"
+                        name="intent"
+                        value={opt}
+                        checked={intent === opt}
+                        onChange={(e) => setIntent(e.target.value)}
+                        className="sr-only"
+                      />
+                      {opt}
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
+
               <button
                 type="submit"
                 className="inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-full bg-verde px-8 text-sm font-medium tracking-wide text-marfil transition-all duration-200 hover:bg-verde-700 hover:shadow-lg"
               >
                 <Send size={18} aria-hidden="true" />
-                Quiero conocer OX
+                Agenda una visita y conoce OX
               </button>
               <p className="text-center text-xs text-carbon/55">
                 Al enviar abriremos WhatsApp con tus datos para agendar tu visita.

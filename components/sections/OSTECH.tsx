@@ -31,17 +31,15 @@ export default function OSTECH() {
           <Reveal delay={0.1}>
             <p className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.3em] text-oro-300">
               <span className="h-px w-8 bg-oro-300" />
-              Respaldado por OSTECH Desarrolladora
+              OSTECH Desarrolladora
             </p>
             <h2 className="mt-4 font-display text-3xl font-semibold leading-tight tracking-display sm:text-4xl">
-              Detrás de un gran hogar, hay un desarrollador en quien puedes confiar.
+              Desarrollado por OSTECH.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-marfil/75">
-              OX es un desarrollo de OSTECH Desarrolladora, una empresa comprometida
-              con crear espacios residenciales que integran innovación, calidad
-              constructiva y una visión de largo plazo. Cada proyecto se concibe para
-              ofrecer hogares funcionales, contemporáneos y preparados para las
-              necesidades de hoy y del futuro.
+              Creamos proyectos residenciales que integran diseño, tecnología y
+              funcionalidad para responder a las nuevas formas de vivir y generar
+              valor a largo plazo.
             </p>
 
             <ul className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
