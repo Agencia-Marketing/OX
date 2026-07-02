@@ -22,7 +22,7 @@ export default function SectionHeading({
   return (
     <Reveal className={isCenter ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
       <p
-        className={`flex items-center gap-3 text-xs font-medium uppercase tracking-[0.3em] text-oro ${
+        className={`flex items-center gap-3 text-sm font-medium uppercase tracking-[0.3em] text-oro sm:text-base ${
           isCenter ? "justify-center" : ""
         }`}
       >
