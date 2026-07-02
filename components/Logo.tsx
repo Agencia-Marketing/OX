@@ -28,8 +28,8 @@ export default function Logo({ variant = "image", className = "" }: LogoProps) {
     <Image
       src="/logo-ox.png"
       alt="OX Tres Residencias Privadas — Dzityá, Mérida"
-      width={300}
-      height={200}
+      width={1150}
+      height={704}
       priority
       className={`w-auto object-contain ${className}`}
     />

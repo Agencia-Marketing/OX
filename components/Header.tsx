@@ -6,13 +6,12 @@ import Logo from "./Logo";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 
 const NAV = [
-  { href: "#por-que-ox", label: "¿Por qué OX?" },
   { href: "#smart-living", label: "Smart Living" },
-  { href: "#hogar", label: "El hogar" },
-  { href: "#dzitya", label: "Ubicación" },
+  { href: "#hogar", label: "Tu Nuevo Hogar" },
+  { href: "#ubicacion", label: "Ubicación" },
   { href: "#galeria", label: "Galería" },
-  { href: "#video", label: "Video" },
-  { href: "#ostech", label: "OSTECH" },
+  { href: "#por-que-elegir", label: "¿Por qué elegir OX?" },
+  { href: "#ostech", label: "Ostech" },
 ];
 
 export default function Header() {
@@ -35,14 +34,8 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 sm:px-8">
-        <a
-          href="#inicio"
-          aria-label="Inicio — OX Residencial"
-          className={`shrink-0 rounded-xl px-3 py-2 transition-all duration-300 ${
-            scrolled ? "bg-transparent" : "bg-marfil/95 shadow-sm"
-          }`}
-        >
-          <Logo className="h-20 sm:h-24" />
+        <a href="#inicio" aria-label="Inicio — OX Residencial" className="shrink-0">
+          <Logo className="h-28 sm:h-32" />
         </a>
 
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Principal">
@@ -68,7 +61,7 @@ export default function Header() {
             rel="noopener noreferrer"
             className="hidden min-h-[44px] items-center rounded-full bg-verde px-5 text-sm font-medium text-marfil transition-colors hover:bg-verde-700 sm:inline-flex"
           >
-            Agenda una visita
+            Conoce OX
           </a>
           <button
             type="button"

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import {
   Ruler,
   Maximize,
@@ -12,6 +11,7 @@ import SectionHeading from "../SectionHeading";
 import Reveal from "../Reveal";
 import CTAButton from "../CTAButton";
 import PlanoViewer from "../PlanoViewer";
+import Carousel from "../Carousel";
 
 const SPECS = [
   { icon: Ruler, value: "281.40 m²", label: "Construcción" },
@@ -22,11 +22,21 @@ const SPECS = [
   { icon: Car, value: "2 autos", label: "Cochera techada" },
 ];
 
+// Carrusel de espacios (auto-rota). Renders existentes.
+const ESPACIOS = [
+  { src: "/renders/cocina.webp", alt: "Cocina integral con isla y comedor" },
+  { src: "/renders/recamara-principal.webp", alt: "Recámara principal con acceso a terraza" },
+  { src: "/renders/recamara-pb.webp", alt: "Recámara en planta baja" },
+  { src: "/renders/bano-principal.webp", alt: "Baño principal con vestidor" },
+  { src: "/renders/fachada-posterior.webp", alt: "Área de alberca privada" },
+];
+
 const DESTACADOS = [
-  "Arquitectura contemporánea",
-  "Amplios espacios interiores",
-  "Diseño funcional y eficiente",
-  "Entorno pensado para el bienestar",
+  "Cocina integral",
+  "Jardín",
+  "Paneles solares",
+  "Diseño contemporáneo",
+  "Sistema Smart Home",
 ];
 
 export default function ConoceHogar() {
@@ -39,18 +49,14 @@ export default function ConoceHogar() {
           intro="Cada detalle de OX fue concebido para responder a las necesidades de la vida actual: compartir en familia, trabajar desde casa, descansar, disfrutar y crecer."
         />
 
-        {/* Imagen ancha destacada */}
+        {/* Carrusel de espacios con movimiento automático */}
         <Reveal className="mt-14">
-          <div className="relative aspect-[16/9] overflow-hidden rounded-2xl sm:aspect-[21/9]">
-            <Image
-              src="/renders/cocina.webp"
-              alt="Cocina integral con isla y comedor en residencia OX"
-              fill
-              priority={false}
-              sizes="(max-width: 1280px) 100vw, 1200px"
-              className="object-cover"
-            />
-          </div>
+          <Carousel
+            slides={ESPACIOS}
+            aspect="16/9"
+            interval={4500}
+            sizes="(max-width: 1280px) 100vw, 1200px"
+          />
         </Reveal>
 
         {/* Specs + destacados + CTA */}
@@ -90,7 +96,7 @@ export default function ConoceHogar() {
             </ul>
             <div className="mt-auto pt-6">
               <CTAButton className="w-full sm:w-auto lg:w-full">
-                Agenda una visita
+                Agenda una visita y conoce OX
               </CTAButton>
             </div>
           </Reveal>

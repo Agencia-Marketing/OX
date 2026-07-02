@@ -36,7 +36,7 @@ const report = await page.evaluate(() => {
   }));
   out.images = imgs;
   // iframe del mapa
-  const f = document.querySelector("#dzitya iframe");
+  const f = document.querySelector("#ubicacion iframe");
   out.mapSrc = f?.getAttribute("src")?.slice(0, 50) || null;
   return out;
 });
