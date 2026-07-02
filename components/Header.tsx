@@ -10,7 +10,6 @@ const NAV = [
   { href: "#hogar", label: "Tu Nuevo Hogar" },
   { href: "#ubicacion", label: "Ubicación" },
   { href: "#galeria", label: "Galería" },
-  { href: "#por-que-elegir", label: "¿Por qué elegir OX?" },
   { href: "#ostech", label: "Ostech" },
 ];
 

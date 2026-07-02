@@ -5,7 +5,6 @@ import SmartLiving from "@/components/sections/SmartLiving";
 import ConoceHogar from "@/components/sections/ConoceHogar";
 import Dzitya from "@/components/sections/Dzitya";
 import Galeria from "@/components/sections/Galeria";
-import PorQueOX from "@/components/sections/PorQueOX";
 import OSTECH from "@/components/sections/OSTECH";
 import Formulario from "@/components/sections/Formulario";
 import Footer from "@/components/sections/Footer";
@@ -20,7 +19,6 @@ export default function Home() {
         <ConoceHogar />
         <Dzitya />
         <Galeria />
-        <PorQueOX />
         <OSTECH />
         <Formulario />
       </main>

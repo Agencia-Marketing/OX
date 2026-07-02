@@ -3,42 +3,34 @@ import SectionHeading from "../SectionHeading";
 import Reveal from "../Reveal";
 import CTAButton from "../CTAButton";
 
-// Cada tarjeta usa una imagen de apoyo. Los renders son INTERINOS;
-// reemplazar con imágenes de stock definitivas en /public/smart/ (ver `final`).
 const CARDS = [
   {
-    img: "/renders/cocina.webp",
-    final: "/smart/smart-home.jpg", // TODO: imagen stock Smart Home
+    img: "/media/smarthome.webp",
     title: "Smart Home",
     text: "Integración y automatización para una experiencia de vida más práctica.",
   },
   {
-    img: "/renders/fachada-principal.webp",
-    final: "/smart/seguridad.jpg", // TODO: imagen stock seguridad
+    img: "/media/seguridad.webp",
     title: "Seguridad Inteligente",
     text: "Mayor tranquilidad para ti y tu familia.",
   },
   {
-    img: "/renders/fachada-posterior.webp",
-    final: "/smart/paneles.jpg", // TODO: imagen stock paneles solares
+    img: "/media/paneles.webp",
     title: "Paneles Solares",
     text: "Mayor eficiencia y mejor aprovechamiento energético.",
   },
   {
-    img: "/renders/lateral-1.webp",
-    final: "/smart/conectividad.jpg", // TODO: imagen stock conectividad
+    img: "/media/conectividad.webp",
     title: "Conectividad",
     text: "Espacios preparados para las nuevas formas de vivir y trabajar.",
   },
   {
-    img: "/renders/recamara-principal.webp",
-    final: "/smart/iluminacion.jpg", // TODO: imagen stock iluminación
+    img: "/media/iluminacion.webp",
     title: "Iluminación Inteligente",
     text: "Mayor confort y funcionalidad en cada ambiente.",
   },
   {
-    img: "/renders/lateral-2.webp",
-    final: "/smart/diseno.jpg", // TODO: imagen stock diseño contemporáneo
+    img: "/media/contemporaneo.webp",
     title: "Diseño Contemporáneo",
     text: "Arquitectura pensada para el estilo de vida actual.",
   },
@@ -98,9 +90,10 @@ export default function SmartLiving() {
         <Reveal delay={0.15}>
           <div className="mt-16 flex flex-col items-start gap-6 border-t border-marfil/15 pt-10 lg:flex-row lg:items-end lg:justify-between">
             <p className="max-w-xl font-display text-2xl font-light leading-snug text-marfil/95">
-              El verdadero lujo hoy no es tener más espacio.
-              <br />
-              <span className="text-marfil">Es vivir mejor.</span>
+              Una propuesta diferente para una forma de habitar en el mercado
+              donde muchas opciones se parecen entre sí, OX, por una
+              experiencia residencial más moderna, eficiente y preparada
+              para el futuro
             </p>
             <CTAButton variant="light" className="shrink-0">
               Conoce OX
