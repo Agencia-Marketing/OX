@@ -20,7 +20,7 @@ export default function HeroVideo() {
       }}
       className="absolute inset-0 h-full w-full object-cover object-center"
     >
-      <source src="/media/video-ox.mp4" type="video/mp4" />
+      <source src="/media/video-ox-cortado.mp4" type="video/mp4" />
     </video>
   );
 }

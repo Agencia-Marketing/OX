@@ -34,14 +34,8 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 sm:px-8">
-        <a
-          href="#inicio"
-          aria-label="Inicio — OX Residencial"
-          className={`shrink-0 rounded-xl px-3 py-2 transition-all duration-300 ${
-            scrolled ? "bg-transparent" : "bg-marfil/95 shadow-sm"
-          }`}
-        >
-          <Logo className="h-20 sm:h-24" />
+        <a href="#inicio" aria-label="Inicio — OX Residencial" className="shrink-0">
+          <Logo className="h-28 sm:h-32" />
         </a>
 
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Principal">

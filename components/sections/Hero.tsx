@@ -26,12 +26,12 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-grafito/75 via-grafito/25 to-transparent" />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pb-16 pt-32 sm:px-8 sm:pb-20">
-        <div className="max-w-2xl">
-          <p className="mb-4 flex items-center gap-2 text-sm font-medium text-marfil/95">
-            <MapPin size={16} className="text-oro-300" aria-hidden="true" />
+        <div className="max-w-2xl lg:max-w-4xl xl:max-w-5xl">
+          <p className="mb-4 flex items-center gap-2 text-lg font-medium text-marfil/95 sm:text-xl">
+            <MapPin size={24} className="text-oro-300" aria-hidden="true" />
             Zona Norte de Mérida, Yucatán
           </p>
-          <h1 className="font-display text-4xl font-semibold leading-[1.05] tracking-display text-marfil sm:text-6xl lg:text-7xl">
+          <h1 className="font-display text-4xl font-semibold leading-[1.05] tracking-display text-marfil sm:text-6xl lg:text-6xl xl:text-7xl">
             Vive en una Smart Home
             <br />
             diseñada para el futuro.
