@@ -11,7 +11,7 @@ import SectionHeading from "../SectionHeading";
 import Reveal from "../Reveal";
 import CTAButton from "../CTAButton";
 import PlanoViewer from "../PlanoViewer";
-import Carousel from "../Carousel";
+import GaleriaCarousel from "../GaleriaCarousel";
 
 const SPECS = [
   { icon: Ruler, value: "281.40 m²", label: "Construcción" },
@@ -22,13 +22,17 @@ const SPECS = [
   { icon: Car, value: "2 autos", label: "Cochera techada" },
 ];
 
-// Carrusel de espacios (auto-rota). Renders existentes.
+// Todas las fotografías del proyecto (auto-rota; click amplía en lightbox).
 const ESPACIOS = [
-  { src: "/renders/cocina.webp", alt: "Cocina integral con isla y comedor" },
+  { src: "/renders/fachada-principal.webp", alt: "Fachada principal del conjunto residencial OX" },
+  { src: "/renders/cocina.webp", alt: "Cocina con isla y comedor integrados" },
   { src: "/renders/recamara-principal.webp", alt: "Recámara principal con acceso a terraza" },
-  { src: "/renders/recamara-pb.webp", alt: "Recámara en planta baja" },
   { src: "/renders/bano-principal.webp", alt: "Baño principal con vestidor" },
-  { src: "/renders/fachada-posterior.webp", alt: "Área de alberca privada" },
+  { src: "/renders/lateral-1.webp", alt: "Vista lateral de la residencia OX" },
+  { src: "/renders/fachada-posterior.webp", alt: "Fachada posterior con área de alberca" },
+  { src: "/renders/recamara-pb.webp", alt: "Recámara en planta baja" },
+  { src: "/renders/bano-pb.webp", alt: "Baño en planta baja" },
+  { src: "/renders/lateral-2.webp", alt: "Vista lateral alterna de la residencia OX" },
 ];
 
 const DESTACADOS = [
@@ -49,14 +53,9 @@ export default function ConoceHogar() {
           intro="Cada detalle de OX fue concebido para responder a las necesidades de la vida actual: compartir en familia, trabajar desde casa, descansar, disfrutar y crecer."
         />
 
-        {/* Carrusel de espacios con movimiento automático */}
+        {/* Carrusel de todas las fotos, con lightbox */}
         <Reveal className="mt-14">
-          <Carousel
-            slides={ESPACIOS}
-            aspect="16/9"
-            interval={4500}
-            sizes="(max-width: 1280px) 100vw, 1200px"
-          />
+          <GaleriaCarousel slides={ESPACIOS} />
         </Reveal>
 
         {/* Specs + destacados + CTA */}

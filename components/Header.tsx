@@ -9,8 +9,7 @@ const NAV = [
   { href: "#smart-living", label: "Smart Living" },
   { href: "#hogar", label: "Tu Nuevo Hogar" },
   { href: "#ubicacion", label: "Ubicación" },
-  { href: "#galeria", label: "Galería" },
-  { href: "#ostech", label: "Ostech" },
+  { href: "#ostech", label: "OSTECH Desarrolladora" },
 ];
 
 export default function Header() {
@@ -42,7 +41,7 @@ export default function Header() {
             <a
               key={item.href}
               href={item.href}
-              className={`text-sm font-medium transition-colors ${
+              className={`whitespace-nowrap text-sm font-medium transition-colors ${
                 scrolled
                   ? "text-carbon/80 hover:text-verde"
                   : "text-marfil/90 hover:text-marfil"

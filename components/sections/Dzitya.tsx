@@ -26,7 +26,7 @@ export default function Dzitya() {
             <SectionHeading
               eyebrow="Ubicación · Zona Norte de Mérida"
               title="Vive en la Zona Norte de Mérida."
-              intro="Una de las zonas con mayor crecimiento, conectividad y plusvalía de la ciudad."
+              intro="Dzityá, una de las zonas con mayor crecimiento, plusvalía y proyección residencial del norte de Mérida."
             />
 
             <Reveal delay={0.1}>
@@ -54,7 +54,7 @@ export default function Dzitya() {
             <div className="overflow-hidden rounded-2xl border border-greige/40 shadow-sm">
               <iframe
                 title="Ubicación de OX Tres Residencias Privadas, Dzityá, Mérida"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6161.713903430529!2d-89.6647083!3d21.0643874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f56756ff02b7f15%3A0x73a7634f3b9cd9b0!2sOX%20Tres%20Residencias%20Privadas!5e1!3m2!1ses-419!2smx!4v1782519540555!5m2!1ses-419!2smx"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6161.713903430529!2d-89.6647083!3d21.0643874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f56756ff02b7f15%3A0x73a7634f3b9cd9b0!2sOX%20Tres%20Residencias%20Privadas!5e0!3m2!1ses-419!2smx!4v1782519540555!5m2!1ses-419!2smx"
                 loading="lazy"
                 referrerPolicy="strict-origin-when-cross-origin"
                 className="h-[420px] w-full lg:h-[520px]"

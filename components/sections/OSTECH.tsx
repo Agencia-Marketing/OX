@@ -34,12 +34,32 @@ export default function OSTECH() {
               OSTECH Desarrolladora
             </p>
             <h2 className="mt-4 font-display text-3xl font-semibold leading-tight tracking-display sm:text-4xl">
-              Desarrollado por OSTECH.
+              Detrás de un gran hogar, hay un desarrollador en quien puedes
+              confiar.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-marfil/75">
-              Creamos proyectos residenciales que integran diseño, tecnología y
-              funcionalidad para responder a las nuevas formas de vivir y generar
-              valor a largo plazo.
+              Cada proyecto que desarrollamos refleja una visión clara: crear
+              espacios que combinen diseño, innovación, tecnología y calidad
+              constructiva para responder a las nuevas formas de vivir.
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-marfil/75">
+              En <strong className="font-semibold text-marfil/90">OSTECH Desarrolladora</strong>{" "}
+              entendemos que adquirir una residencia es una de las decisiones
+              patrimoniales más importantes para una familia. Por ello, cada
+              desarrollo está respaldado por procesos responsables, seguridad
+              jurídica, garantía postventa y un compromiso permanente con quienes
+              depositan su confianza en nosotros.
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-marfil/75">
+              Creemos que un buen desarrollo no termina con la entrega de una
+              casa; comienza con la tranquilidad de saber que detrás de tu
+              inversión existe una empresa sólida, con experiencia y visión de
+              largo plazo.
+            </p>
+            <p className="mt-4 text-base font-semibold leading-relaxed text-marfil/90">
+              En OX construimos más que residencias; creamos espacios pensados
+              para perdurar, generar valor y acompañar los proyectos de vida de
+              quienes deciden llamarlos hogar.
             </p>
 
             <ul className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -58,7 +78,7 @@ export default function OSTECH() {
               className="mt-9"
               context="Hola, me gustaría conocer más sobre OX Residencial y OSTECH Desarrolladora, y agendar una visita."
             >
-              Conoce OX, desarrollado por OSTECH
+              Conoce el respaldo de OSTECH Desarrolladora
             </CTAButton>
           </Reveal>
         </div>

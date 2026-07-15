@@ -44,7 +44,7 @@ export default function Hero() {
           {/* Precio + diferenciadores: visibles desde la portada */}
           <div className="mt-7 flex flex-wrap items-center gap-x-3 gap-y-3">
             <span className="rounded-full bg-oro px-5 py-2 text-sm font-semibold text-grafito shadow-sm">
-              Desde $4.2 MDP*
+              Desde $4.4 MDP*
             </span>
             <div className="flex flex-wrap gap-2">
               {SPECS.map((s) => (

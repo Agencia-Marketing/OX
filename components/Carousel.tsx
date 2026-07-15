@@ -25,7 +25,7 @@ type CarouselProps = {
 
 /**
  * Carrusel de imágenes 1×1 con auto-slide y transición suave (fade).
- * Reutilizable: ConoceHogar (espacios) y Galería (con lightbox).
+ * Reutilizable; GaleriaCarousel lo envuelve para añadir lightbox.
  * Respeta prefers-reduced-motion.
  */
 export default function Carousel({

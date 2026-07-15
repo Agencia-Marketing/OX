@@ -90,10 +90,10 @@ export default function SmartLiving() {
         <Reveal delay={0.15}>
           <div className="mt-16 flex flex-col items-start gap-6 border-t border-marfil/15 pt-10 lg:flex-row lg:items-end lg:justify-between">
             <p className="max-w-xl font-display text-2xl font-light leading-snug text-marfil/95">
-              Una propuesta diferente para una forma de habitar en el mercado
-              donde muchas opciones se parecen entre sí, OX, por una
-              experiencia residencial más moderna, eficiente y preparada
-              para el futuro
+              La mejor tecnología es aquella que mejora tu vida sin que tengas
+              que pensar en ella. En OX, cada residencia integra soluciones
+              inteligentes que aportan comodidad, seguridad y bienestar para que
+              tú solo te dediques a disfrutar tu hogar.
             </p>
             <CTAButton variant="light" className="shrink-0">
               Conoce OX
