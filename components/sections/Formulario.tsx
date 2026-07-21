@@ -3,9 +3,9 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Send } from "lucide-react";
-import { buildWhatsAppLink } from "@/lib/whatsapp";
 
 type Errors = { name?: string; phone?: string; email?: string };
+type Status = "idle" | "sending" | "sent" | "error";
 
 export default function Formulario() {
   const [name, setName] = useState("");
@@ -13,7 +13,10 @@ export default function Formulario() {
   const [email, setEmail] = useState("");
   const [city, setCity] = useState("");
   const [intent, setIntent] = useState("");
+  const [website, setWebsite] = useState(""); // honeypot anti-spam
   const [errors, setErrors] = useState<Errors>({});
+  const [status, setStatus] = useState<Status>("idle");
+  const [serverError, setServerError] = useState("");
 
   function validate(): Errors {
     const e: Errors = {};
@@ -26,17 +29,36 @@ export default function Formulario() {
     return e;
   }
 
-  function onSubmit(ev: React.FormEvent) {
+  async function onSubmit(ev: React.FormEvent) {
     ev.preventDefault();
     const e = validate();
     setErrors(e);
     if (Object.keys(e).length) return;
 
-    const context = email.trim()
-      ? `Hola, me gustaría agendar una visita a OX Residencial. Mi correo es ${email.trim()}.`
-      : undefined;
-    const link = buildWhatsAppLink({ name, phone, city, intent, context });
-    window.open(link, "_blank", "noopener,noreferrer");
+    setStatus("sending");
+    setServerError("");
+    try {
+      const res = await fetch("/api/contacto", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, phone, email, city, intent, website }),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error ?? "No pudimos enviar tu solicitud.");
+      }
+      setStatus("sent");
+      setName("");
+      setPhone("");
+      setEmail("");
+      setCity("");
+      setIntent("");
+    } catch (err) {
+      setStatus("error");
+      setServerError(
+        err instanceof Error ? err.message : "No pudimos enviar tu solicitud."
+      );
+    }
   }
 
   const fieldClass =
@@ -69,7 +91,7 @@ export default function Formulario() {
               Agenda una visita y conoce OX en persona.
             </h2>
             <p className="mt-3 text-base leading-relaxed text-carbon/75">
-              Déjanos tus datos y te contactaremos por WhatsApp para coordinar tu
+              Déjanos tus datos y nuestro equipo te contactará para coordinar tu
               visita a OX.
             </p>
 
@@ -198,15 +220,44 @@ export default function Formulario() {
                 </div>
               </fieldset>
 
+              {/* Honeypot: oculto para personas, visible para bots. */}
+              <div className="absolute left-[-9999px]" aria-hidden="true">
+                <label htmlFor="website">No llenar este campo</label>
+                <input
+                  id="website"
+                  name="website"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={website}
+                  onChange={(e) => setWebsite(e.target.value)}
+                />
+              </div>
+
               <button
                 type="submit"
-                className="inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-full bg-verde px-8 text-sm font-medium tracking-wide text-marfil transition-all duration-200 hover:bg-verde-700 hover:shadow-lg"
+                disabled={status === "sending"}
+                className="inline-flex min-h-[52px] w-full items-center justify-center gap-2 rounded-full bg-verde px-8 text-sm font-medium tracking-wide text-marfil transition-all duration-200 hover:bg-verde-700 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-60"
               >
                 <Send size={18} aria-hidden="true" />
-                Agenda una visita y conoce OX
+                {status === "sending"
+                  ? "Enviando…"
+                  : "Agenda una visita y conoce OX"}
               </button>
+
+              {status === "sent" && (
+                <p role="status" className="text-center text-sm font-medium text-verde">
+                  ¡Gracias! Recibimos tus datos y te contactaremos muy pronto.
+                </p>
+              )}
+              {status === "error" && (
+                <p role="alert" className="text-center text-sm text-red-600">
+                  {serverError}
+                </p>
+              )}
+
               <p className="text-center text-xs text-carbon/55">
-                Al enviar abriremos WhatsApp con tus datos para agendar tu visita.
+                Al enviar, tus datos llegarán a nuestro equipo de ventas.
               </p>
             </form>
           </div>
